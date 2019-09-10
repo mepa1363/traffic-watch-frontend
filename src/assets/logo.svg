@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="111px" height="114px" viewBox="0 0 111 114" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="traffic-watch" transform="translate(-5.000000, 0.000000)">
+            <g id="T" transform="translate(5.000000, 0.000000)" fill="#FF1744">
+                <rect id="Rectangle" x="0" y="0" width="111" height="30"></rect>
+                <rect id="Rectangle" transform="translate(56.000000, 71.666667) rotate(90.000000) translate(-56.000000, -71.666667) " x="14" y="53" width="84" height="37.3333333"></rect>
+            </g>
+            <g id="W" fill="#FFFFFF" font-family="SFUIText-Bold, SF UI Text" font-size="120" font-weight="bold">
+                <text>
+                    <tspan x="0" y="114">W</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
