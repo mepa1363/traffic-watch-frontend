@@ -240,38 +240,42 @@ export default {
           const bikes = response.data.features.filter(
             item => item.properties.label === "Bike"
           );
-          const vehiclesMinMaxRate = this.findMinMaxRate(vehicles);
-          const vehiclesInterval =
-            (vehiclesMinMaxRate.max - vehiclesMinMaxRate.min) / 5;
-
-          const bikesMinMaxRate = this.findMinMaxRate(bikes);
-          const bikesInterval = (bikesMinMaxRate.max - bikesMinMaxRate.min) / 5;
-
-          const pedestriansMinMaxRate = this.findMinMaxRate(pedestrians);
-          const pedestriansInterval =
-            (pedestriansMinMaxRate.max - pedestriansMinMaxRate.min) / 5;
-
-          this.addLayer(
-            `vehicle-${temporalWindow}`,
-            vehicles,
-            vehiclesMinMaxRate.min,
-            vehiclesInterval,
-            this.summaryMapLayer === "Vehicle" ? "visible" : "none"
-          );
-          this.addLayer(
-            `pedestrian-${temporalWindow}`,
-            pedestrians,
-            pedestriansMinMaxRate.min,
-            pedestriansInterval,
-            this.summaryMapLayer === "Pedestrian" ? "visible" : "none"
-          );
-          this.addLayer(
-            `bike-${temporalWindow}`,
-            bikes,
-            bikesMinMaxRate.min,
-            bikesInterval,
-            this.summaryMapLayer === "Bike" ? "visible" : "none"
-          );
+          if (vehicles.length > 0) {
+            const vehiclesMinMaxRate = this.findMinMaxRate(vehicles);
+            const vehiclesInterval =
+              (vehiclesMinMaxRate.max - vehiclesMinMaxRate.min) / 5;
+            this.addLayer(
+              `vehicle-${temporalWindow}`,
+              vehicles,
+              vehiclesMinMaxRate.min,
+              vehiclesInterval,
+              this.summaryMapLayer === "Vehicle" ? "visible" : "none"
+            );
+          }
+          if (bikes.length > 0) {
+            const bikesMinMaxRate = this.findMinMaxRate(bikes);
+            const bikesInterval =
+              (bikesMinMaxRate.max - bikesMinMaxRate.min) / 5;
+            this.addLayer(
+              `bike-${temporalWindow}`,
+              bikes,
+              bikesMinMaxRate.min,
+              bikesInterval,
+              this.summaryMapLayer === "Bike" ? "visible" : "none"
+            );
+          }
+          if (pedestrians.length > 0) {
+            const pedestriansMinMaxRate = this.findMinMaxRate(pedestrians);
+            const pedestriansInterval =
+              (pedestriansMinMaxRate.max - pedestriansMinMaxRate.min) / 5;
+            this.addLayer(
+              `pedestrian-${temporalWindow}`,
+              pedestrians,
+              pedestriansMinMaxRate.min,
+              pedestriansInterval,
+              this.summaryMapLayer === "Pedestrian" ? "visible" : "none"
+            );
+          }
           this.isMapLoading = false;
         });
     },
